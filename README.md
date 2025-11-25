@@ -246,55 +246,19 @@ Valida identidad + viaje,
 
 Muestra el formulario de autorización o rechazo.
 
-📄 Lógica para adjuntar documentos según técnicos
-// Ejemplo a completar
+🔹 Procesamiento de la autorización (Aceptar / Rechazar)
 
-✔️ Procesamiento de la autorización (Aceptar / Rechazar)
-// Ejemplo a completar
+Este bloque es el corazón del sistema de autorizaciones.
+Aquí se procesa la respuesta enviada por el jefe de planta o por RRHH a través del formulario recibido por correo electrónico.
+ ```php
+        $viaje = new Viaje($via_id,$pla_id_autorizo);
+        $viaje->setAutorizacionJefes($autorizar);
+        $viaje->setUsuAutorizaJefes($usu_id);
+        $viaje->setMotivoRechazoJefes($motivo);
+        $viaje->setFAutorizoJefes(date('Y-m-d H:i:s'));
+        $viaje->doSave(null,true,$usu_id)
+   ```     
 
-🗂️ Consulta principal a la BD
-// Ejemplo a completar
 
-🗄️ 11. Base de datos
 
-Tablas involucradas (a completar):
 
-viajes
-
-viaje_tecnicos
-
-autorizaciones
-
-usuarios
-
-documentos
-
-documentos_tecnicos
-
-Campos relevantes, relaciones y claves foráneas.
-
-(Podemos armar diagrama ER si querés.)
-
-🛠️ 12. Tecnologías utilizadas
-
-PHP
-
-MySQL
-
-HTML
-
-CSS
-
-Git
-
-Sistema interno de gestión de viajes (Infoke)
-
-🚀 13. Instalación / configuración
-
-(Opcional. Lo agregamos si querés que otros puedan montarlo local.)
-
-👤 14. Autoría
-
-Desarrollado por:
-Lorena Bagnasco — Backend Developer (PHP)
-GitHub: https://github.com/lorenabagnasco
