@@ -119,7 +119,15 @@ Registro y auditoría
 
 📥 Flujo detallado
 
-(En esta sección podemos agregar diagramas cuando quieras.)
+Carga única de documentos (se gestionan caducidades).
+
+Creación del viaje (se indica si requiere autorización).
+
+Generación y envío de enlace “one-click” a los jefes de planta.
+
+Jefe responde (Aceptar/Rechazar) desde el formulario sin logueo.
+
+Sistema actualiza estado del viaje y notifica a técnicos y portería.
 
 Flujo del técnico
 
@@ -127,7 +135,31 @@ Flujo del jefe de planta
 
 Flujo del administrativo interno
 
-Flujo del sistema (viajes → adjuntos → notificación → autorización)
+sequenceDiagram
+  participant Admin
+  participant Sistema
+  participant DocModule as "Módulo Doc"
+  participant Jefe
+  participant Tecnicos
+  participant Porteria
+
+  Admin->>DocModule: (1) Carga documentos (única) / actualizaciones
+  Note right of DocModule: Control de vencimientos y alertas
+
+  Admin->>Sistema: (2) Crear viaje (fecha, técnicos, requiere_autorizacion)
+  Sistema->>DocModule: (3) Asociar documentos vigentes a técnicos
+  alt requiere_autorizacion
+    Sistema->>Jefe: (4) Generar token y enviar email con enlace
+    Jefe->>Sistema: (5) Abre enlace (token)
+    Sistema->>Sistema: (6) Validar token
+    Jefe->>Sistema: (7) Aceptar / Rechazar
+    Sistema->>Sistema: (8) Registrar decisión en autorizaciones
+    Sistema->>Tecnicos: (9) Notificar estado (si AUTORIZADO -> marcado en verde)
+    Sistema->>Porteria: (10) Notificar autorización para ingreso
+  else no requiere autorización
+    Sistema->>Tecnicos: Programado sin autorización
+  end
+
 
 🖼️ 9. Capturas de pantalla
 
