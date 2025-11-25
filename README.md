@@ -206,8 +206,45 @@ Una vez completado el proceso, se envían las notificaciones correspondientes a 
 
 (Acá irán los bloques de código que vos me pases. Algunos que seguramente incluiremos:)
 
-🔐 Generación de URL con ID encriptado
-// Ejemplo a completar
+🔐 Generación del enlace seguro para autorización con un solo clic
+
+Para permitir que los jefes de planta puedan aprobar o rechazar la solicitud sin necesidad de loguearse en el sistema, se genera un enlace único y seguro que contiene:
+
+El ID del viaje encriptado.
+
+El ID del usuario responsable encriptado.
+
+Al acceder a este enlace, el sistema valida automáticamente la identidad del jefe y muestra el formulario de autorización correspondiente.
+
+Este mecanismo permite una experiencia ágil y segura para el cliente, garantizando que cada enlace sea válido únicamente para el usuario y el viaje al que fue asignado.
+
+// Generación de URL segura para aprobación con un solo clic
+ ```php
+// Encriptación de los IDs involucrados
+$url_usu_id = Solicitudes::encrypt($usuario_rrhh);
+$url_via_id = Solicitudes::encrypt($viaje_id);
+
+// Construcción del enlace de autorización
+$formurl_valoracion = 
+    'http://hades/viaje_a_planta/indexjefes.php?via_id=' 
+    . $url_via_id 
+    . '&usu_id=' 
+    . $url_usu_id;
+
+```
+Cómo funciona
+
+Solicitudes::encrypt() aplica una capa de encriptación sobre los IDs para evitar manipulación manual.
+
+Se arma la URL con ambos valores encriptados.
+
+Cuando el jefe de planta accede al enlace, el sistema:
+
+Desencripta los parámetros,
+
+Valida identidad + viaje,
+
+Muestra el formulario de autorización o rechazo.
 
 📄 Lógica para adjuntar documentos según técnicos
 // Ejemplo a completar
