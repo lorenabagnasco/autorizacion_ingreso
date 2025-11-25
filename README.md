@@ -1,4 +1,4 @@
-#🏷️ Sistema de Solicitud de Autorización de Ingreso a Planta — One-Click Authorization
+🏷️ Sistema de Solicitud de Autorización de Ingreso a Planta — One-Click Authorization
 
 📝 Descripción 
 
