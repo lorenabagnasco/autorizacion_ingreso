@@ -202,9 +202,6 @@ Una vez completado el proceso, se envían las notificaciones correspondientes a 
 
 ![Autorización otorgada](./autorizacion_otorgada.png)
 
-🧩 10. Ejemplos de código
-
-(Acá irán los bloques de código que vos me pases. Algunos que seguramente incluiremos:)
 
 🔐 Generación del enlace seguro para autorización con un solo clic
 
