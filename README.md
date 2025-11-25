@@ -157,19 +157,50 @@ sequenceDiagram
   end
 ```
 
-🖼️ 9. Capturas de pantalla
+📸 Capturas del funcionamiento
 
-(Pendiente — me pasás las imágenes y las agregamos)
+A continuación se incluyen imágenes representativas del flujo completo de la herramienta de Autorización de Ingreso a Planta con un solo clic.
+Cada captura ilustra un momento clave del proceso: carga documental, creación del viaje, notificación por correo, autorización por un clic y confirmación final.
 
-Vista del formulario
+1. Carga de archivos del viaje
 
-Vista de los adjuntos
+Archivo: carga_archivos_viaje.png
+Esta pantalla corresponde al módulo donde se visualizan y gestionan los documentos asociados a cada técnico.
+Los archivos se cargan una sola vez, y el sistema controla sus fechas de vencimiento para que siempre estén disponibles al momento de generar una autorización.
 
-Vista del viaje
+![Carga de archivos del viaje](./carga_archivos_viaje.png)
 
-Ejemplo del enlace
+2. Datos del viaje
 
-Vistas internas del sistema
+Archivo: Datos_viaje.png
+Vista donde se definen los detalles del viaje: fecha, planta, técnicos participantes y si requiere autorización de ingreso.
+Al confirmar, el sistema genera automáticamente la solicitud para los jefes de planta si corresponde.
+
+![Datos del viaje](./Datos_viaje.png)
+
+3. Correo de solicitud de autorización
+
+Archivo: correo_autorizacion.png
+Ejemplo del correo que recibe el jefe de planta.
+Incluye un enlace único y seguro (token encriptado), que permite autorizar o rechazar sin necesidad de ingresar al sistema.
+
+![Correo de solicitud de autorización](./correo_autorizacion.png)
+
+4. Formulario de Autorización (one-click)
+
+Archivo: formulario_autorizacion.png
+Al hacer clic en el enlace recibido, el jefe accede a este formulario minimalista.
+Puede ver la información del viaje, los técnicos, tareas y todos los documentos adjuntos.
+Desde aquí decide aprobar o rechazar con un solo clic.
+
+![Formulario de autorización](./formulario_autorizacion.png)
+
+5. Autorización otorgada
+
+Archivo: autorizacion_otorgada.png
+Una vez completado el proceso, se envían las notificaciones correspondientes a portería para habilitar el ingreso de los tecnicos.
+
+![Autorización otorgada](./autorizacion_otorgada.png)
 
 🧩 10. Ejemplos de código
 
