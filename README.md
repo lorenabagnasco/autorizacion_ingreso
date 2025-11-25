@@ -129,11 +129,7 @@ Jefe responde (Aceptar/Rechazar) desde el formulario sin logueo.
 
 Sistema actualiza estado del viaje y notifica a técnicos y portería.
 
-Flujo del técnico
-
-Flujo del jefe de planta
-
-Flujo del administrativo interno
+```mermaid
 
 sequenceDiagram
   participant Admin
@@ -159,7 +155,7 @@ sequenceDiagram
   else no requiere autorización
     Sistema->>Tecnicos: Programado sin autorización
   end
-
+```
 
 🖼️ 9. Capturas de pantalla
 
